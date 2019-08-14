@@ -122,7 +122,7 @@ apply_theme() {
     window_status_current_fg=colour16 # black
     window_status_current_bg=colour74 # light blue
 
-    window_status_current_format="#[fg=$window_status_bg,bg=$window_status_current_bg]$left_separator_black#[fg=$window_status_current_fg,bg=$window_status_current_bg,bold] #I $left_separator #W #[fg=$window_status_current_bg,bg=$status_bg,nobold]$left_separator_black"
+    window_status_current_format="#[fg=$window_status_bg,bg=$window_status_current_bg]$left_separator_black#[fg=$window_status_current_fg,bg=$window_status_current_bg,bold] #I #W #[fg=$window_status_current_bg,bg=$status_bg,nobold]$left_separator_black"
     tmux setw -g window-status-current-format "$window_status_current_format"
     tmux set -g status-justify left
 
@@ -149,7 +149,7 @@ apply_theme() {
     whoami_bg=colour160         # red
     host_fg=colour16            # black
     host_bg=colour190           # pale green
-    myip_bg=colour247           # white-ish gray
+    myip_bg=colour140           # white-ish gray
     myip=$(dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | sed 's,",,g')
     #myip=$(dig +short myip.opendns.com @resolver1.opendns.com)
     status_right="︎#[fg=$time_date_fg,nobold]#{prefix_highlight} $right_separator %R $right_separator %a %d %b #[fg=$host_bg]"
@@ -163,7 +163,7 @@ apply_theme() {
     fi
 
     if [ "$SHOW_BATTERY" = true ]; then
-        status_right="$status_right #{battery_icon} #{battery_percentage}"
+        status_right="$status_right #{battery_icon} #{battery_percentage} "
     fi
 
     # Only add intermediate separator if both CPU and Batter are to be displayed
