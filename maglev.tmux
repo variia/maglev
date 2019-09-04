@@ -150,7 +150,8 @@ apply_theme() {
     host_fg=colour16            # black
     host_bg=colour190           # pale green
     myip_bg=colour140           # white-ish gray
-    myip=$(dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | sed 's,",,g')
+    myip=$(curl -sL ipecho.net/plain || curl -sL ifconfig.me)
+    #myip=$(dig TXT +short o-o.myaddr.l.google.com @ns1.google.com | sed 's,",,g')
     #myip=$(dig +short myip.opendns.com @resolver1.opendns.com)
     status_right="︎#[fg=$time_date_fg,nobold]#{prefix_highlight} $right_separator %R $right_separator %a %d %b #[fg=$host_bg]"
 
